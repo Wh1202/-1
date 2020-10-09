@@ -18,8 +18,6 @@ $.ajaxPrefilter(function (options) {
     }
     //3.拦截所有响应，判断身份证认证信息
     options.complete = function (res) {
-        console.log(res.responseJSON);
-        var obj = res.responseJSON;
         if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败") {
             //1.删除本地 token
             localStorage.removeItem("token");

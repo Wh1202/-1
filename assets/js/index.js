@@ -25,7 +25,7 @@ function getUserInfo() {
             Authorization: localStorage.getItem("token") || ""
         },
         success: function (res) {
-            console.log(res);
+            // console.log(res);
             //判断状态码
             if (res.status !== 0) {
                 return layui.layer.mag(res.message)
@@ -35,7 +35,7 @@ function getUserInfo() {
         },
         //无论成功或失败，都是触发complete方法
         complete: function (res) {
-            console.log(res);
+            // console.log(res);
             //判断如果身份认证失败，跳转回登陆页面
             if (res.responseJSON.status === 1 && res.responseJSON.message === "身份认证失败") {
                 //1.删除本地 token
